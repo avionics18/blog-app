@@ -1,0 +1,30 @@
+<%- include("partials/header") %>  
+
+<main class="py-5">
+  <div class="container">
+    <h3 class="font-weight-bold text-uppercase">All Blog Posts</h3>
+    <hr class="border-info">
+    <div class="row mt-4">
+      <% for( let post of blogs ) { %>
+      <div class="col-lg-4 mb-4">
+        <div class="card h-100 rounded-lg shadow-sm">
+          <div class="card-img overflow-hidden">
+            <img class="w-100 h-100" src="<%= post.image_url %>" alt="<%= post.title %>">
+          </div>
+          <div class="card-body">
+            <h4 class="card-title"><a href="/blog/<%= post.id %>" class="text-dark ff-serif"><%= post.title %></a></h4>
+            <p class="small font-weight-bold text-secondary"><i class="far fa-user-circle"></i> <%= post.author %> | <i class="far fa-calendar-alt"></i> <%= post.postedOn %>  </p>
+            <p class="card-text small text-secondary"><%= post.summary %></p>
+          </div>
+          <div class="card-footer">
+            <a href="/blog/<%= post.id %>" class="btn btn-info btn-sm">Read More <i class="fas fa-chevron-circle-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <% } %>
+    </div>
+  </div>
+</main>
+
+<%- include("partials/footer") %> 
+  

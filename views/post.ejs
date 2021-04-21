@@ -1,0 +1,61 @@
+<%- include("partials/header") %>
+<main class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <h1 class="ff-serif font-weight-bold text-center"><%= post.title %></h1>
+        <h6 class="text-secondary text-center my-3">
+          <i class="far fa-user-circle mr-2"></i><%= post.author %> | 
+          <i class="far fa-calendar-alt mr-2"></i><%= post.postedOn %>
+        </h6>
+        <hr />
+        <p class="text-center">
+          <img class="mw-100 rounded-lg shadow" src="<%= post.image_url %>" alt="<%= post.title %>" />
+        </p>
+        <br />
+        <p><%- post.text %></p>
+        <br><hr>
+        <div class="d-flex justify-content-between">
+          <a href="/blog/<%= post.id %>/edit" class="btn btn-outline-info btn-sm"><i class="fas fa-edit"></i> Edit this Post</a>
+          <button onclick="toggleModal()" class="btn btn-outline-danger btn-sm"><i class="fas fa-trash"></i> Delete this Post</button>
+        </div>
+      </div>
+      <!-- col-lg-8  -->
+    </div>
+    <!-- row  -->
+  </div>
+  <!-- container  -->
+</main>
+
+
+<!-- Modal  -->
+<div class="modal-wrapper d-none">
+  <div class="modal-box">
+    <div class="modal-box-icon">
+      <p class="m-0 d-inline-block text-center text-danger bg-white rounded-pill"><i class="fas fa-exclamation-triangle"></i></p>
+    </div>
+    <div class="modal-box-top text-center">
+      <h3 class="text-danger">Are You Sure?</h3>
+      <p class="text-secondary m-0">You want to delete this post - <b>"<%= post.title %>"</b></p>
+    </div>
+    <div class="modal-box-bottom">
+      <div><button onclick="toggleModal()" class="btn btn-secondary btn-block btn-lg rounded-0">Cancel</button></div>
+      <div>
+        <form action="/blog/<%= post.id %>?_method=DELETE" method="post">
+          <button type="submit" class="btn btn-danger btn-block btn-lg rounded-0">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  const modal = document.querySelector(".modal-wrapper");
+
+  function toggleModal() {
+    modal.classList.toggle("d-none");
+  }
+</script>
+
+<%- include("partials/footer") %>
