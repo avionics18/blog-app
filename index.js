@@ -43,7 +43,7 @@ const blogs = [
   {
     id: uuid(),
     postedOn: moment().format("MMMM Do YYYY"),
-    author: "Avitesh Murmu",
+    author: "Shreyansh Jaiswal",
     title: "How to Mock an API with random data from NodeJS",
     text:
       "<p>As a frontend developer you often need data from an API. But sometimes the backend hasn\'t been setup by your team. In order for you to continue and mock your data, it\'s a good idea to not store your data structure on memory.</p><p>It\'s a good idea to start as soon as possible to talk with an external API where your data comes from. In this tutorial I want to go through a minimal setup for mocking your data. After this you should be able to extend it with your own data as needed.</p><br><h3>Dependencies</h3><p>In order to work with Node you need to have it installed on your machine. For the mac users I highly recommend to install it with NVM, because it will make it easier to update NodeJS in the future. (There is also a version for Windows).</p><p>Create a new folder to start for this project. Run <code>npm init -y</code> to initialize the folder with Node and it will create automaticly a package.json for you.</p><p>In order to create the mockserver we need 2 npm dependencies. <b>json-server</b> and <b>casual</b> so we run <code>npm install json-server casual --save-dev</code> in our project.</p><br><h3>Base for the mock-server</h3><p>Create a <code>index.js</code> and paste this code in it.</p><pre>const jsonServer = require(\'json-server\')<br>const server = jsonServer.create()<br>const middlewares = jsonServer.defaults()<br>const port = process.env.PORT || 3000<br>server.use(jsonServer.bodyParser)<br>server.use(middlewares)<br>server.listen(port, () => {<br>console.log(\'JSON Server is running\')<br>})</pre><p>We include the json-server in order to use it. Then we create a server instance in the <code>const server</code>. With the middlewares we can set a few options like path to static files, CORS and few more. But here we just use it without and specific options.</p><p>The port is very important. If you want this to run on a server it will first search if there is any default port set for a Node server, otherwise it will pick port <code>3000</code>.</p><p>We include the bodyParser and middleswarses by using <code>server.user()</code>. And after that we do a console log so you know the mock-server is running.</p>",
@@ -93,7 +93,7 @@ app.get("/blog/:id", (req, res) => {
 app.get("/blog/:id/edit", (req, res) => {
   const { id } = req.params;
   const post = blogs.find(p => p.id === id);
-  res.render("editPost", { post, titleTag: "Edit Post" });
+  res.render("editPost", { post, titleTag: `Edit Post | ${post.title}` });
 });
 
 // PATCH - /blog/:id
