@@ -1,6 +1,6 @@
 $(document).ready(function () {
   // summernote initialization
-  $("#text").summernote({
+  $("#postBody").summernote({
     minHeight: 300,
     maxHeight: 500,
     placeholder: "Enter the body of the post...",

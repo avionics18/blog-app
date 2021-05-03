@@ -1,25 +1,28 @@
 # Blog App
 
-A simple blog app using NodeJS & Express.
+A simple blog app using NodeJS, Express & MongoDB.
 
 ![cover](cover-image.png)
 
 \
 \
 ||||||||||||||||||||
-### __Features__
+
+### **Features**
 
 - All the CRUD functionalities
-- `author`, `date`, `post thumbnail`, `summary` fields
-- __SummerNote__ WYSIWYG Text Editor
-
+- `author`, `date`, `post thumbnail`, `summary`, `comments`
+- **SummerNote** WYSIWYG Text Editor
 
 \
 \
 ||||||||||||||||||||
-### __How To Run__
+
+### **How To Run**
 
 - clone this repository
-- open __terminal__ or __cmd__, head on to this __blogApp__ directory and run command `npm i`
-- And then run `npm start`
-- Open browser and hit __`localhost:3000/blog`__
+- open **terminal** or **cmd**, `cd` on to this **blog-app/** directory and run command `npm i` to install all the dependencies
+- Open `index.js` comment in `seedDB()` function call to seed the database
+- And then run `npm start` (to run with node) or `npm run dev` (to run with nodemon)
+- Now comment out the `seedDB()` function call
+- Open browser and hit **`localhost:3000`** to view the blog

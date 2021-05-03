@@ -21,18 +21,39 @@ pre {
 .blockquote p {
   margin: 0;
 }
-.postImg{
+.postImg {
   min-width: 100%;
-  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
 }
 
 /* Header  */
-.logo{
+.logo {
   background: linear-gradient(0deg, #085865, #063f47);
   color: #a8f3ff;
 }
+/* Navbar  */
 .my-navbar {
   background-color: #2f4040;
+}
+.my-navbar .nav .nav-link {
+  padding: 10px 14px 6px 14px;
+  color: rgba(255, 255, 255, 0.6);
+  border-bottom: 5px solid transparent;
+  transition: 0.25s;
+}
+.my-navbar .nav .nav-link:hover,
+.my-navbar .nav .nav-link.active {
+  color: rgba(255, 255, 255, 1);
+  background-color: #222;
+  border-bottom-color: var(--info);
+}
+
+/* Hero */
+.hero {
+  background-color: #333;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.97)),
+    url("https://i.pinimg.com/originals/40/b1/69/40b169113fbdb8eee28dfb8409ee028c.jpg") repeat
+      center;
 }
 
 /* Blogs  */
